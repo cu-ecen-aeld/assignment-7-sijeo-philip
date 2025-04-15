@@ -11,8 +11,8 @@ endif
 
 LDDINC=$(PWD)/../include
 
-#EXTRA_CFLAGS += $(DEBFLAGS)
-#EXTRA_CFLAGS += -I$(LDDINC)
+EXTRA_CFLAGS += $(DEBFLAGS)
+EXTRA_CFLAGS += -I$(LDDINC)
 CROSS_COMPILE ?= aarch64-none-linux-gnu-gcc
 CC = $(CROSS_COMPILE)
 
@@ -29,7 +29,7 @@ KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) CROSS_COMPILE=$(CC) M=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 
 endif
 
