@@ -7,7 +7,8 @@
 
 LDDINC=$(PWD)/../include
 EXTRA_CFLAGS += -I$(LDDINC)
-
+CROSS_COMPILE ?=
+CC = $(CROSS_COMPILE)gcc
 ifeq ($(KERNELRELEASE),)
 
     # Assume the source tree is where the running kernel was built
@@ -17,10 +18,10 @@ ifeq ($(KERNELRELEASE),)
     PWD := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) CROSS_COMPILE=$(CC)  M=$(PWD) modules
 
 modules_install:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules_install
+	$(MAKE) -C $(KERNELDIR) CROSS_COMPILE=$(CC) M=$(PWD) modules_install
 
 clean:
 	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions *.mod modules.order *.symvers

@@ -13,6 +13,8 @@ LDDINC=$(PWD)/../include
 
 EXTRA_CFLAGS += $(DEBFLAGS)
 EXTRA_CFLAGS += -I$(LDDINC)
+CROSS_COMPILE ?=
+CC = $(CROSS_COMPILE)gcc
 
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
@@ -27,7 +29,7 @@ KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) CROSS_COMPILE=$(CC) M=$(PWD) modules
 
 endif
 
