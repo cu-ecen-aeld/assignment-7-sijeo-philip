@@ -7,8 +7,8 @@
 
 LDDINC=$(PWD)/../include
 EXTRA_CFLAGS += -I$(LDDINC)
-CROSS_COMPILE ?=
-CC = $(CROSS_COMPILE)gcc
+CROSS_COMPILE ?= aarch64-none-linux-gnu-
+CC = $(CROSS_COMPILE)
 ifeq ($(KERNELRELEASE),)
 
     # Assume the source tree is where the running kernel was built
