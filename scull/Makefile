@@ -11,8 +11,8 @@ endif
 
 LDDINC=$(PWD)/../include
 
-EXTRA_CFLAGS += $(DEBFLAGS)
-EXTRA_CFLAGS += -I$(LDDINC)
+#EXTRA_CFLAGS += $(DEBFLAGS)
+#EXTRA_CFLAGS += -I$(LDDINC)
 CROSS_COMPILE ?= aarch64-none-linux-gnu-gcc
 CC = $(CROSS_COMPILE)
 

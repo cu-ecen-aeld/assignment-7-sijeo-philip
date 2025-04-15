@@ -6,7 +6,7 @@
 # kernel Makefile or not.
 
 LDDINC=$(PWD)/../include
-EXTRA_CFLAGS += -I$(LDDINC)
+#EXTRA_CFLAGS += -I$(LDDINC)
 CROSS_COMPILE ?= aarch64-none-linux-gnu-gcc
 CC = $(CROSS_COMPILE)
 ifeq ($(KERNELRELEASE),)
