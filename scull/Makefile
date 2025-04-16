@@ -14,7 +14,7 @@ LDDINC=$(PWD)/../include
 EXTRA_CFLAGS += $(DEBFLAGS)
 EXTRA_CFLAGS += -I$(LDDINC)
 CROSS_COMPILE ?= aarch64-none-linux-gnu-gcc
-CC = $(CROSS_COMPILE)
+CC = $(CROSS_COMPILE)gcc
 
 ifneq ($(KERNELRELEASE),)
 # call from kernel build system
